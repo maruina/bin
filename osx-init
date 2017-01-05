@@ -1,0 +1,27 @@
+#!/urs/bin/env bash
+set -uo pipefail
+
+HOMEBREW_PACKAGES="shellcheck bash coreutils git git-extras jq the_silver_searcher wget"
+
+if [[ "$(xcode-select -v)" -ne 0 ]]; then
+	xcode-select --install
+fi
+
+# Install homebrew
+if [[ "$(brew -v)" -ne 0 ]]; then
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+fi
+brew install "${HOMEBREW_PACKAGES}"
+
+# Install oh-my-zsh
+if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+# Download tools
+cd "${HOME}/Downloads" || exit 1
+wget https://download.sublimetext.com/Sublime%20Text%20Build%203126.dmg
+wget https://releases.gpgtools.org/GPG_Suite-2016.10_v2.dmg
+wget https://telegram.org/dl/macos
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh

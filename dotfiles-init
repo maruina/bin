@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefile
+set -uo pipefail
 
 dotfiles () {
 	git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
