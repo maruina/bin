@@ -25,3 +25,6 @@ wget https://download.sublimetext.com/Sublime%20Text%20Build%203126.dmg
 wget https://releases.gpgtools.org/GPG_Suite-2016.10_v2.dmg
 wget https://telegram.org/dl/macos
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+wget https://github.com/newmarcel/KeepingYouAwake/releases/download/1.4.1/KeepingYouAwake-1.4.1.zip
+wget https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip
+wget http://unarchiver.c3.cx/downloads/TheUnarchiver3.11.1.zip
