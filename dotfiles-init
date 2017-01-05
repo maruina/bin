@@ -8,13 +8,13 @@ dotfiles () {
 cd "${HOME}"
 dotfiles status
 if [ "$?" -eq 0 ]; then
-	echo "Dotfiles repository already present"
+	echo "Dotfiles repository already initialised"
 else
 	git clone https://github.com/maruina/dotfiles
 	mkdir -p $HOME/.dotfiles-backup
 	dotfiles checkout
 	if [ "$?" -ne 0 ]; then
-		echo "Checked out dotfiles.";
+		echo "Dotfiles installed.";
 	else
 	    echo "Backing up pre-existing dotfiles.";
 	    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I {} mv {} .dotfiles-backup/{}
@@ -22,7 +22,5 @@ else
 	dotfiles checkout
 	dotfiles config status.showUntrackedFiles no
 fi
-
-
 
 grep -q -F 'alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"' ~/.zshrc || echo 'alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"' >> ~/.zshrc
