@@ -1,7 +1,28 @@
 #!/urs/bin/env bash
 set -uo pipefail
 
-HOMEBREW_PACKAGES="shellcheck bash coreutils git git-extras jq the_silver_searcher wget"
+HOMEBREW_PACKAGES="bash coreutils git git-extras jq shellcheck wget"
+
+GPGSUITE="https://releases.gpgtools.org/GPG_Suite-2016.10_v2.dmg"
+KEEPINGYOUAWAKE="https://github.com/newmarcel/KeepingYouAwake/releases/download/1.4.1/KeepingYouAwake-1.4.1.zip"
+MINICONDA="https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+RIPGREP="https://github.com/BurntSushi/ripgrep/releases/download/0.3.2/ripgrep-0.3.2-x86_64-apple-darwin.tar.gz"
+SPECTACLE="https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip"
+SUBLIMETEXT3="https://download.sublimetext.com/Sublime%20Text%20Build%203126.dmg"
+TELEGRAM="https://telegram.org/dl/macos"
+UNARCHIVER="http://unarchiver.c3.cx/downloads/TheUnarchiver3.11.1.zip"
+
+# Download tools
+mkdir -p "${HOME}/Downloads"
+cd  "${HOME}/Downloads" || exit 1
+wget "${SUBLIMETEXT3}"
+wget "${GPGSUITE}"
+wget "${TELEGRAM}"
+wget "${MINICONDA}"
+wget "${KEEPINGYOUAWAKE}"
+wget "${SPECTACLE}"
+wget "${UNARCHIVER}"
+wget "${RIPGREP}"
 
 if [[ "$(xcode-select -v)" -ne 0 ]]; then
 	xcode-select --install
@@ -18,13 +39,3 @@ brew install "${HOMEBREW_PACKAGES}"
 if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
-
-# Download tools
-cd "${HOME}/Downloads" || exit 1
-wget https://download.sublimetext.com/Sublime%20Text%20Build%203126.dmg
-wget https://releases.gpgtools.org/GPG_Suite-2016.10_v2.dmg
-wget https://telegram.org/dl/macos
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-wget https://github.com/newmarcel/KeepingYouAwake/releases/download/1.4.1/KeepingYouAwake-1.4.1.zip
-wget https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip
-wget http://unarchiver.c3.cx/downloads/TheUnarchiver3.11.1.zip
