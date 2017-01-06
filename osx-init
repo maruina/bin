@@ -1,7 +1,7 @@
 #!/urs/bin/env bash
 set -uo pipefail
 
-HOMEBREW_PACKAGES="bash coreutils git git-extras jq shellcheck wget"
+HOMEBREW_PACKAGES="bash coreutils diff-so-fancy git git-extras jq shellcheck wget"
 
 GPGSUITE="https://releases.gpgtools.org/GPG_Suite-2016.10_v2.dmg"
 KEEPINGYOUAWAKE="https://github.com/newmarcel/KeepingYouAwake/releases/download/1.4.1/KeepingYouAwake-1.4.1.zip"
@@ -14,7 +14,7 @@ UNARCHIVER="http://unarchiver.c3.cx/downloads/TheUnarchiver3.11.1.zip"
 
 # Download tools
 mkdir -p "${HOME}/Downloads"
-cd  "${HOME}/Downloads" || exit 1
+cd "${HOME}/Downloads" || exit 1
 wget "${SUBLIMETEXT3}"
 wget "${GPGSUITE}"
 wget "${TELEGRAM}"
